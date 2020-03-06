@@ -11,5 +11,15 @@
         "Apache Software License 2.0",
         "MIT",
         "GNU GPL v3.0"
+    ],
+    "Foo": [
+        "Foo",
+        "Bar",
+        "FooBar"
+    ],
+    "foo": [
+        "foo",
+        "bar",
+        "foobar"
     ]
 }
