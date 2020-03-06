@@ -1,0 +1,6 @@
+target
+*.bak
+*.test
+.idea
+api/*
+vendor

@@ -1,0 +1,14 @@
+{
+    "Author": "Samuel Craig",
+    "Owner": "VaynerX",
+    "AppName": "go-api",
+    "Description": "A full featured API written in Go.",
+    "RepositoryURL": "https://github.com/vaynerx/x",
+    "Version": "1.0.0",
+    "Year": "2020",
+    "License": [
+        "Apache Software License 2.0",
+        "MIT",
+        "GNU GPL v3.0"
+    ]
+}
