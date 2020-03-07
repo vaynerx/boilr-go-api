@@ -1,14 +1,14 @@
 # MAKEFILE
 #
 # @author      Nicola Asuni <info@tecnick.com>
-# @link        https://{{ RepositoryOwner }}/{{ Project }}
+# @link        {{ Repository }}/{{ Project }}
 # ------------------------------------------------------------------------------
 
 # Use bash as shell (Note: Ubuntu now uses dash which doesn't support PIPESTATUS).
 SHELL=/bin/bash
 
 # CVS path (path to the parent dir containing the project)
-CVSPATH={{ RepositoryOwner }}
+CVSPATH={{ Repository }}
 
 # Project owner
 OWNER={{ if Owner }}{{ Owner }}{{ end }}
