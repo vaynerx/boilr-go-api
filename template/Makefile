@@ -1,6 +1,6 @@
 # MAKEFILE
 #
-# @author      Nicola Asuni <info@tecnick.com>
+# @author      {{ Author }} <{{ Email }}>
 # @link        {{ Repository }}/{{ Project }}
 # ------------------------------------------------------------------------------
 
