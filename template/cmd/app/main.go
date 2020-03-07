@@ -1,6 +1,6 @@
 // Package {{ Project }}
 // Copyright (c) {{ Year }} {{ if Owner }}{{ Owner }}{{ end }}
-// ~#SHORTDESCRIPTION#~
+// {{ Title }}
 
 package main
 
