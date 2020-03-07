@@ -5,7 +5,7 @@
 * **category**    API
 * **copyright**   {{ Year }} {{ if Owner }}{{ Owner }}{{ end }}
 * **license**     see [LICENSE](LICENSE)
-* **link**         ~#PROJECTLINK#~
+* **link**        {{ Repository }}/{{ Project }}
 
 -----------------------------------------------------------------
 
