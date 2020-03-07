@@ -1,9 +1,9 @@
-# {{AppName}}
+# {{ Project }}
 
 *Brief project description ...*
 
 * **category**    API
-* **copyright**   ~#CURRENTYEAR#~ {{ if Owner }}{{Owner}}{{ end }}
+* **copyright**   {{ Year }} {{ if Owner }}{{ Owner }}{{ end }}
 * **license**     see [LICENSE](LICENSE)
 * **link**         ~#PROJECTLINK#~
 
@@ -104,7 +104,7 @@ Please check all the available options using `make help`.
 ## Usage
 
 ```bash
-{{AppName}} [flags]
+{{ Project }} [flags]
 
 Flags:
 
@@ -127,7 +127,7 @@ See [CONFIG.md](CONFIG.md).
 Once the application has being compiled with `make build`, it can be quickly tested:
 
 ```bash
-target/usr/bin/{{AppName}} -c resources/test/etc/{{AppName}}
+target/usr/bin/{{ Project }} -c resources/test/etc/{{ Project }}
 ```
 
 <a name="logs"></a>
@@ -143,7 +143,7 @@ This program logs the log messages in JSON format:
     "hostname":"myserver",
     "level":"info",
     "msg":"request",
-    "program":"{{AppName}}",
+    "program":"{{ Project }}",
     "release":"1",
     "timestamp":1475765808084372773,
     "type":"GET",
@@ -208,7 +208,7 @@ this returns the JWT token in a JSON data field:
 
 ```
 {
-  "program": "{{AppName}}",
+  "program": "{{ Project }}",
   "version": "1.0.0",
   "release": "1",
   "url": ":8017",
@@ -252,7 +252,7 @@ abCDbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InRlc3QiLCJleHAiOjE1NzQ0Mzk
 <a name="openapi"></a>
 ## OpenAPI
 
-The {{AppName}} API is specified via the [OpenAPI 3](https://www.openapis.org/) file: `openapi.yaml`.
+The {{ Project }} API is specified via the [OpenAPI 3](https://www.openapis.org/) file: `openapi.yaml`.
 
 The openapi file can be edited using the Swagger Editor:
 
@@ -269,13 +269,13 @@ and pointing the Web browser to http://localhost:8056
 The live API can be tested against the OpenAPI specification file by installing [schemathesis](https://github.com/kiwicom/schemathesis) and run the command:
 
 ```
-schemathesis run --validate-schema=false --checks=all --base-url=http://{{AppName}}.qa:8017 openapi.yaml
+schemathesis run --validate-schema=false --checks=all --base-url=http://{{ Project }}.qa:8017 openapi.yaml
 ```
 
 or
 
 ```
-~#UPROJECT#~_URL=http://{{AppName}}.qa:8017 make openapitest
+{{ toUpper Project }}_URL=http://{{ Project }}.qa:8017 make openapitest
 ```
 
 -----------------------------------------------------------------
@@ -283,7 +283,7 @@ or
 <a name="docker"></a>
 ## Docker
 
-To build a Docker scratch container for the {{AppName}} executable binary execute the following command:
+To build a Docker scratch container for the {{ Project }} executable binary execute the following command:
 ```
 make docker
 ```
@@ -303,17 +303,17 @@ Note that this command will require to set the follwoing environmental variables
 
 To manually create the container you can execute:
 ```
-docker build --tag="{{ if Owner }}{{Owner}}{{ end }}/{{AppName}}dev" .
+docker build --tag="{{ if Owner }}{{ Owner }}{{ end }}/{{ Project }}dev" .
 ```
 
 To log into the newly created container:
 ```
-docker run -t -i {{ if Owner }}{{Owner}}{{ end }}/{{AppName}}dev /bin/bash
+docker run -t -i {{ if Owner }}{{ Owner }}{{ end }}/{{ Project }}dev /bin/bash
 ```
 
 To get the container ID:
 ```
-CONTAINER_ID=`docker ps -a | grep {{ if Owner }}{{Owner}}{{ end }}/{{AppName}}dev | cut -c1-12`
+CONTAINER_ID=`docker ps -a | grep {{ if Owner }}{{ Owner }}{{ end }}/{{ Project }}dev | cut -c1-12`
 ```
 
 To delete the newly created docker container:
@@ -323,7 +323,7 @@ docker rm -f $CONTAINER_ID
 
 To delete the docker image:
 ```
-docker rmi -f {{ if Owner }}{{Owner}}{{ end }}/{{AppName}}dev
+docker rmi -f {{ if Owner }}{{ Owner }}{{ end }}/{{ Project }}dev
 ```
 
 To delete all containers

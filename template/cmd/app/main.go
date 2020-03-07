@@ -1,5 +1,5 @@
-// Package {{AppName}}
-// Copyright (c) ~#CURRENTYEAR#~ {{ if Owner }}{{Owner}}{{ end }}
+// Package {{ Project }}
+// Copyright (c) {{ Year }} {{ if Owner }}{{ Owner }}{{ end }}
 // ~#SHORTDESCRIPTION#~
 
 package main
@@ -7,7 +7,7 @@ package main
 import (
 	context "context"
 
-	app "{{ if Owner }}{{Owner}}{{ end }}.{{AppName}}/internal/app"
+	app "{{ if Owner }}{{ Owner }}{{ end }}.{{ Project }}/internal/app"
 
 	logx "github.com/ory/x/logrusx"
 	log "github.com/sirupsen/logrus"

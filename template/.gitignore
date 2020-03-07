@@ -3,4 +3,5 @@ target
 *.test
 .idea
 api/*
+!api/.gitkeep
 vendor

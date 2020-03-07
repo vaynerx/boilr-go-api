@@ -1,23 +1,23 @@
 # MAKEFILE
 #
 # @author      Nicola Asuni <info@tecnick.com>
-# @link        https://~#CVSPATH#~/{{AppName}}
+# @link        https://{{ RepositoryOwner }}/{{ Project }}
 # ------------------------------------------------------------------------------
 
 # Use bash as shell (Note: Ubuntu now uses dash which doesn't support PIPESTATUS).
 SHELL=/bin/bash
 
 # CVS path (path to the parent dir containing the project)
-CVSPATH=~#CVSPATH#~
+CVSPATH={{ RepositoryOwner }}
 
 # Project owner
-OWNER={{ if Owner }}{{Owner}}{{ end }}
+OWNER={{ if Owner }}{{ Owner }}{{ end }}
 
 # Project vendor
-VENDOR={{ if Owner }}{{Owner}}{{ end }}
+VENDOR={{ if Owner }}{{ Owner }}{{ end }}
 
 # Project name
-PROJECT={{AppName}}
+PROJECT={{ Project }}
 
 # Project version
 VERSION=$(shell cat VERSION)
@@ -519,7 +519,7 @@ run:
 # Ping the deployed service to check if the correct deployed container is alive
 .PHONY: ping
 ping:
-	if [ "200_$(VERSION)_$(RELEASE)_" != "$(shell curl --silent --insecure '$(~#UPROJECT#~_URL)/ping' | jq -r '.code,.version,.release' | tr '\n' '_')" ]; then exit 1; fi
+	if [ "200_$(VERSION)_$(RELEASE)_" != "$(shell curl --silent --insecure '$({{ toUpper Project }}_URL)/ping' | jq -r '.code,.version,.release' | tr '\n' '_')" ]; then exit 1; fi
 
 # Retry the ping command automatically (try 60 times every 5 sec = 5 min max)
 .PHONY: rping
@@ -529,16 +529,16 @@ rping:
 # Test the OpenAPI specification against the real deployed service
 .PHONY: openapitest
 openapitest:
-	schemathesis run --validate-schema=true --hypothesis-deadline=1000 --checks=all --base-url='$(~#UPROJECT#~_URL)' openapi.yaml
+	schemathesis run --validate-schema=true --hypothesis-deadline=1000 --checks=all --base-url='$({{ toUpper Project }}_URL)' openapi.yaml
 
 # Run venom tests (https://github.com/ovh/venom)
 .PHONY: apitest
 apitest:
 	@mkdir -p target/report
 	venom run \
-		--var {{AppName}}.url="${~#UPROJECT#~_URL}" \
-		--var {{AppName}}.version="${VERSION}" \
-		--var {{AppName}}.release="${RELEASE}" \
+		--var {{ Project }}.url="${{{ toUpper Project }}_URL}" \
+		--var {{ Project }}.version="${VERSION}" \
+		--var {{ Project }}.release="${RELEASE}" \
 		--strict \
 		--log=info \
 		--output-dir=target/report \

@@ -1,1 +1,1 @@
-{{range foo}} {{ . }} {{ end }}
+{{ range foo }} {{ . }} {{ end }}

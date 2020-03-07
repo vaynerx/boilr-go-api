@@ -23,7 +23,6 @@ func NewConfig(ctx context.Context) *Config {
 }
 
 func (app *App) InitConfig(ctx context.Context) error {
-	getSkaffold()
 	config, err := getConfig()
 	if err != nil {
 		return err
@@ -122,19 +121,10 @@ func getLocalConfig() (cfg Config, rcfg remoteConfig, err error) {
 	}
 
 	// name of the global configuration file without extension
-	viper.SetConfigName("global")
+	viper.SetConfigName("config")
 
 	// Find and read the global configuration file (if any)
 	err = viper.ReadInConfig()
-	if err != nil {
-		return cfg, rcfg, err
-	}
-
-	// name of the local configuration file without extension
-	viper.SetConfigName("local")
-
-	// Find and merge the local configuration file (if any)
-	err = viper.MergeInConfig()
 	if err != nil {
 		return cfg, rcfg, err
 	}

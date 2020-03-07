@@ -3,7 +3,7 @@ package app
 import (
 	context "context"
 
-	_ "{{ if Owner }}{{Owner}}{{ end }}.{{AppName}}/api/proto/{{AppName}}/api"
+	_ "{{ if Owner }}{{ Owner }}{{ end }}.{{ Project }}/api/proto/{{ Project }}/api"
 
 	gwruntime "github.com/grpc-ecosystem/grpc-gateway/runtime"
 	grpc "google.golang.org/grpc"

@@ -1,7 +1,7 @@
 package app
 
 // ProgramName defines this application name
-const ProgramName = "{{AppName}}"
+const ProgramName = "{{ Project }}"
 
 // ProgramVersion set this application version
 // This is supposed to be automatically populated by the Makefile using the value from the VERSION file
@@ -26,14 +26,14 @@ const RemoteConfigProvider = ""
 // RemoteConfigEndpoint is the remote configuration URL (ip:port)
 const RemoteConfigEndpoint = ""
 
-// RemoteConfigPath is the remote configuration path where to search fo the configuration file ("/config/{{AppName}}")
+// RemoteConfigPath is the remote configuration path where to search fo the configuration file ("/config/{{ Project }}")
 const RemoteConfigPath = ""
 
-// RemoteConfigSecretKeyring is the path to the openpgp secret keyring used to decript the remote configuration data ("/etc/{{AppName}}/configkey.gpg")
+// RemoteConfigSecretKeyring is the path to the openpgp secret keyring used to decript the remote configuration data ("/etc/{{ Project }}/configkey.gpg")
 const RemoteConfigSecretKeyring = "" // #nosec
 
 // EnvironmentVariablesPrefix prefix to add to the configuration environment variables
-const EnvironmentVariablesPrefix = "~#UPROJECT#~"
+const EnvironmentVariablesPrefix = "{{ toUpper Project }}"
 
 // ServerShutdownTimeout timeout in seconds before forcing the server to close
 const ServerShutdownTimeout = 10

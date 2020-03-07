@@ -1,19 +1,19 @@
 # Configuration Guide
 
-The {{AppName}} service can load the configuration either from a local configuration file or remotely via [Consul](https://www.consul.io/), [Etcd](https://github.com/coreos/etcd) or a single Environmental Variable.
+The {{ Project }} service can load the configuration either from a local configuration file or remotely via [Consul](https://www.consul.io/), [Etcd](https://github.com/coreos/etcd) or a single Environmental Variable.
 
 The local configuration file is always loaded before the remote configuration, the latter always overwrites any local setting.
 
 If the *configDir* parameter is not specified, then the program searches for a **config.json** file in the following directories (in order of precedence):
 * ./
 * config/
-* $HOME/{{AppName}}/
-* /etc/{{AppName}}/
+* $HOME/{{ Project }}/
+* /etc/{{ Project }}/
 
 
 ## Default Configuration
 
-The default configuration file is installed in the **/etc/{{AppName}}/** folder (**config.json**) along with the JSON schema **config.schema.json**.
+The default configuration file is installed in the **/etc/{{ Project }}/** folder (**config.json**) along with the JSON schema **config.schema.json**.
 
 
 ## Remote Configuration
@@ -25,17 +25,17 @@ The configuration fields are:
 
 * **remoteConfigProvider**      : remote configuration source ("consul", "etcd", "envvar");
 * **remoteConfigEndpoint**      : remote configuration URL (ip:port);
-* **remoteConfigPath**          : remote configuration path in which to search for the configuration file (e.g. "/config/{{AppName}}");
-* **remoteConfigSecretKeyring** : path to the [OpenPGP](http://openpgp.org/) secret keyring used to decrypt the remote configuration data (e.g. "/etc/{{AppName}}/configkey.gpg"); if empty a non secure connection will be used instead;
+* **remoteConfigPath**          : remote configuration path in which to search for the configuration file (e.g. "/config/{{ Project }}");
+* **remoteConfigSecretKeyring** : path to the [OpenPGP](http://openpgp.org/) secret keyring used to decrypt the remote configuration data (e.g. "/etc/{{ Project }}/configkey.gpg"); if empty a non secure connection will be used instead;
 * **remoteConfigData**          : base64 encoded JSON configuration data to be used with the "envvar" provider.
 
 The equivalent environment variables are:
 
-* ~#UPROJECT#~_REMOTECONFIGPROVIDER
-* ~#UPROJECT#~_REMOTECONFIGENDPOINT
-* ~#UPROJECT#~_REMOTECONFIGPATH
-* ~#UPROJECT#~_REMOTECONFIGSECRETKEYRING
-* ~#UPROJECT#~_REMOTECONFIGDATA
+* {{ toUpper Project }}_REMOTECONFIGPROVIDER
+* {{ toUpper Project }}_REMOTECONFIGENDPOINT
+* {{ toUpper Project }}_REMOTECONFIGPATH
+* {{ toUpper Project }}_REMOTECONFIGSECRETKEYRING
+* {{ toUpper Project }}_REMOTECONFIGDATA
 
 
 ## Configuration Format
@@ -44,8 +44,8 @@ The configuration format is a single JSON structure with the following fields:
 
 * **remoteConfigProvider**      : Remote configuration source ("consul", "etcd", "envvar")
 * **remoteConfigEndpoint**      : Remote configuration URL (ip:port)
-* **remoteConfigPath**          : Remote configuration path in which to search for the configuration file (e.g. "/config/{{AppName}}")
-* **remoteConfigSecretKeyring** : Path to the openpgp secret keyring used to decrypt the remote configuration data (e.g. "/etc/{{AppName}}/configkey.gpg"); if empty a non secure connection will be used instead
+* **remoteConfigPath**          : Remote configuration path in which to search for the configuration file (e.g. "/config/{{ Project }}")
+* **remoteConfigSecretKeyring** : Path to the openpgp secret keyring used to decrypt the remote configuration data (e.g. "/etc/{{ Project }}/configkey.gpg"); if empty a non secure connection will be used instead
 
 * **log**:  *Logging settings*
     * **level**:   Defines the default log level: EMERGENCY, ALERT, CRITICAL, ERROR, WARNING, NOTICE, INFO, DEBUG
@@ -104,5 +104,5 @@ sudo pip install jsonschema
 Example usage:
 
 ```
-json validate --schema-file=/etc/{{AppName}}/config.schema.json --document-file=/etc/{{AppName}}/config.json
+json validate --schema-file=/etc/{{ Project }}/config.schema.json --document-file=/etc/{{ Project }}/config.json
 ```
