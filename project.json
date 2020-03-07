@@ -2,7 +2,7 @@
     "Author": "Samuel Craig",
     "Owner": "VaynerX",
     "Email": "admin@vaynerx.com",
-    "Project": "go-api", 
+    "Project": "goapi", 
     "Repository": "https://github.com/vaynerx",
     "Title": "Go API",
     "Description": "A full featured API written in Go.",
