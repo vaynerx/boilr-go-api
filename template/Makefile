@@ -529,14 +529,14 @@ rping:
 # Test the OpenAPI specification against the real deployed service
 .PHONY: openapitest
 openapitest:
-	schemathesis run --validate-schema=true --hypothesis-deadline=1000 --checks=all --base-url='{{ toUpper Project }}_URL' openapi.yaml
+	schemathesis run --validate-schema=true --hypothesis-deadline=1000 --checks=all --base-url='{{ toEnv Project }}_URL' openapi.yaml
 
 # Run venom tests (https://github.com/ovh/venom)
 .PHONY: apitest
 apitest:
 	@mkdir -p target/report
 	venom run \
-		--var {{ Project }}.url="{{ toUpper Project }}_URL" \
+		--var {{ Project }}.url="{{ toEnv Project }}_URL" \
 		--var {{ Project }}.version="$(VERSION)" \
 		--var {{ Project }}.release="$(RELEASE)" \
 		--strict \
