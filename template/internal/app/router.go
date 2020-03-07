@@ -23,5 +23,5 @@ func (app *App) InitRouter(ctx context.Context) error {
 	app.router.Use(middleware.CORS())
 	app.router.GET("/", echo.WrapHandler(app.gateway))
 
-	return app.router.Start(":" + app.config.api.{{ Name }}.Port)
+	return app.router.Start(":" + app.config.api.{{ Project }}.Port)
 }
