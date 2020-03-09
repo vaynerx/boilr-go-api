@@ -3,8 +3,6 @@ package app
 import (
 	bytes "bytes"
 	fmt "fmt"
-
-	viper "github.com/spf13/viper"
 )
 
 // SkaffoldAPIData defines all available `api` entities.
